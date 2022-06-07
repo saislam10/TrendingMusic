@@ -1,10 +1,4 @@
-// fetch('https://api.giphy.com/v1/gifs/search?api_key=ZCIh2UkoAMZsDdlMKYVbI8ksUZ3kYD1z&q=J Cole&limit=25&offset=0&rating=g&lang=en')
-//     .then(function(response){
-//         return response.json();
-//     })
-//     .then(function (data) {
-//         console.log(data);
-//     })
+
 var state = 'page1';  
 var page1El = document.querySelector('#page1');
 var page2El = document.querySelector('#page2');
@@ -50,10 +44,33 @@ function displayPages() {
     }
 }
 
+function callGif(name) {
+    fetch('https://api.giphy.com/v1/gifs/search?api_key=ZCIh2UkoAMZsDdlMKYVbI8ksUZ3kYD1z&q='+ name + '&limit=25&offset=0&rating=g&lang=en')
+    .then(function(response){
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+        var data1 = data[0].url;
+        console.log(data1);
+    })
+}
+
+// function getSongs() {
+    // fetch('https://api.giphy.com/v1/gifs/search?api_key=ZCIh2UkoAMZsDdlMKYVbI8ksUZ3kYD1z&q='+ name + '&limit=25&offset=0&rating=g&lang=en')
+    // .then(function(response){
+    //     return response.json();
+    // })
+    // .then(function (data) {
+    //     console.log(data);
+    //     var data1 = data[0].url;
+    //     console.log(data1);
+    // })
+// }
+
 submit.addEventListener("click", function () {
     state = 'page2';
     displayPages();
-
 });
 
 next1.addEventListener("click", function () {
@@ -73,6 +90,7 @@ restart.addEventListener("click", function () {
 
 function init() {
     displayPages();
+    callGif("Drake");
 }
 
 init();
