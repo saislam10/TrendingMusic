@@ -10,7 +10,7 @@ var page1El = document.querySelector('#page1')
 var page2El = document.querySelector('#page2')
 var page3El = document.querySelector('#page3')
 var page4El = document.querySelector('#page4')
-
+var fake;
 
 function displayPages() {
     if (state === 'page1'){
@@ -38,3 +38,4 @@ function displayPages() {
         page4El.style.display = 'block';
     }
 }
+
