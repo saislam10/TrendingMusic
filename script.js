@@ -11,11 +11,15 @@ var usa = document.querySelector('#usa');
 var italy = document.querySelector('#italy');
 var uk = document.querySelector('#uk');
 var germany = document.querySelector('#germany');
-var france = document.querySelector('#france')
-var inpuEl = document.querySelector('#inputEl')
+var france = document.querySelector('#france');
+var inpuEl = document.querySelector('#inputEl');
+var dateEl = document.querySelector('#date');
+var today = moment().format("dddd, MMMM Do, YYYY");
+
 
 function displayPages() {
     if (state === 'page1') {
+        // var today = moment().format('MMMM Do YYYY');
         page1El.style.display = 'block';
         page2El.style.display = 'none';
         page3El.style.display = 'none';
@@ -85,7 +89,6 @@ function callGif(nameEl) {
 submit.addEventListener("click", function () {
     state = 'page2';
     displayPages();
-    callGif(inpuEl.value)
 });
 
 next1.addEventListener("click", function () {
@@ -104,9 +107,11 @@ restart.addEventListener("click", function () {
 });
 
 function init() {
+    dateEl.append("Today's Date: " + today)    
     displayPages();
-    // callGif(nameEl);
-    getSongs();
+    callGif('bulbasaur');
+
+    // getSongs();
 }
 
 init();
