@@ -12,6 +12,7 @@ var page3El = document.querySelector('#page3')
 var page4El = document.querySelector('#page4')
 var fake;
 
+
 function displayPages() {
     if (state === 'page1'){
         page1El.style.display = 'block';
