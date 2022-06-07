@@ -50,9 +50,7 @@ function callGif(name) {
         return response.json();
     })
     .then(function (data) {
-        console.log(data);
-        var data1 = data[0].url;
-        console.log(data1);
+        console.log(data.data[0]);
     })
 }
 
