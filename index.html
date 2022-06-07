@@ -5,13 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+    crossorigin="anonymous">
     <title>Document</title>
 </head>
 
 <body>
-    <input type="text" name="artist" id="inputEl">
-    <section id='page1'>
-        <button id='submit'>Submit</button>
+    <section class="card col-12 bg-dark text-light m-4 p-3" id='page1'>
+        <div class="m-1 py-5"id='date'></div>
+        <div class="m-1">Which country would you like the top songs for?</div>
         <select id="format" name="format" class="form-select">
             <option id="usa">USA</option>
             <option id="italy">Italy</option>
@@ -19,19 +23,21 @@
             <option id="germany">Germany</option>
             <option id="france">France</option>
         </select>
+        <button class="justify-content-center my-5 mx-auto align-items-center" id='submit'>Submit</button>
     </section>
-    <section id='page2'>
-        <button id='next1'>Next</button>
+    <section class="bg-dark col-12 text-light" id='page2'>
+        <button class ="m-4 p-3"id='next1'>Next</button>
         <!-- <iframe src="https://giphy.com/embed/I2nZMy0sI0ySA" width="480" height="372" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/pokemon-jumping-bulbasaur-I2nZMy0sI0ySA">via GIPHY</a></p> -->
     </section>
-    <section id='page3'>
-        <button id='next2'>Next</button>
+    <section class="card col-12 bg-dark text-light" id='page3'>
+        <button class ="m-4 p-3" id='next2'>Next</button>
         <!-- <iframe src="https://giphy.com/embed/I2nZMy0sI0ySA" width="480" height="372" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/pokemon-jumping-bulbasaur-I2nZMy0sI0ySA">via GIPHY</a></p> -->
     </section>
-    <section id='page4'>
-        <button id='restart'>Restart</button>
+    <section class="card col-12 bg-dark text-light" id='page4'>
+        <button class ="m-4 p-3" id='restart'>Restart</button>
         <!-- <iframe src="https://giphy.com/embed/I2nZMy0sI0ySA" width="480" height="372" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/pokemon-jumping-bulbasaur-I2nZMy0sI0ySA">via GIPHY</a></p> -->
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="script.js"></script>
 </body>
 
