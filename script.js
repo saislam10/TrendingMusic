@@ -12,6 +12,7 @@ var italy = document.querySelector('#italy');
 var uk = document.querySelector('#uk');
 var germany = document.querySelector('#germany');
 var france = document.querySelector('#france')
+var inpuEl = document.querySelector('#inputEl')
 
 function displayPages() {
     if (state === 'page1') {
@@ -43,28 +44,38 @@ function displayPages() {
     }
 }
 
-function getSongs() {
-    fetch('https://pokeapi.co/api/v2/pokemon/')
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            callGif(name);
-            for (var i = 0; i < 3; i++) {
-                var name1 = data.results[i].name;
-                console.log(name1);
+// function getSongs() {
+//     fetch('https://pokeapi.co/api/v2/pokemon/')
+//         .then(function (response) {
+//             return response.json();
+//         })
+//         .then(function (data) {
+//             // callGif(name);
+        
+            
+           
+//         })
+// }
 
-            }
-        })
-}
-
-function callGif(name) {
-    fetch('https://api.giphy.com/v1/gifs/search?api_key=ZCIh2UkoAMZsDdlMKYVbI8ksUZ3kYD1z&q=' + name + '&limit=25&offset=0&rating=g&lang=en')
+function callGif(nameEl) {
+    fetch('https://api.giphy.com/v1/gifs/search?api_key=ZCIh2UkoAMZsDdlMKYVbI8ksUZ3kYD1z&q=' + nameEl + '&limit=25&offset=0&rating=g&lang=en')
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
             console.log(data)
+            var embedId = data.data[0].id
+            var embedId1 = data.data[1].id
+            var embedId2 = data.data[2].id
+            var gif1 = document.createElement('iframe');
+            var gif2  = document.createElement('iframe');
+            var gif3 = document.createElement('iframe');
+            gif1.setAttribute("src", "https://giphy.com/embed/" + embedId)
+            gif2.setAttribute("src", "https://giphy.com/embed/" + embedId1)
+            gif3.setAttribute("src", "https://giphy.com/embed/" + embedId2)
+            page2El.append(gif1);
+            page3El.append(gif2);
+            page4El.append(gif3);
         })
 }
 
@@ -74,6 +85,7 @@ function callGif(name) {
 submit.addEventListener("click", function () {
     state = 'page2';
     displayPages();
+    callGif(inpuEl.value)
 });
 
 next1.addEventListener("click", function () {
@@ -93,7 +105,7 @@ restart.addEventListener("click", function () {
 
 function init() {
     displayPages();
-    callGif();
+    // callGif(nameEl);
     getSongs();
 }
 
