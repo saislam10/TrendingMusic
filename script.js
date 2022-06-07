@@ -1,5 +1,4 @@
-
-var state = 'page1';  
+var state = 'page1';
 var page1El = document.querySelector('#page1');
 var page2El = document.querySelector('#page2');
 var page3El = document.querySelector('#page3');
@@ -15,28 +14,28 @@ var germany = document.querySelector('#germany');
 var france = document.querySelector('#france')
 
 function displayPages() {
-    if (state === 'page1'){
+    if (state === 'page1') {
         page1El.style.display = 'block';
         page2El.style.display = 'none';
         page3El.style.display = 'none';
         page4El.style.display = 'none';
     }
 
-    if (state === 'page2'){
+    if (state === 'page2') {
         page1El.style.display = 'none';
         page2El.style.display = 'block';
         page3El.style.display = 'none';
         page4El.style.display = 'none';
     }
 
-    if (state === 'page3'){
+    if (state === 'page3') {
         page1El.style.display = 'none';
         page2El.style.display = 'none';
         page3El.style.display = 'block';
-        page4El.style.display = 'none'; 
+        page4El.style.display = 'none';
     }
 
-    if (state === 'page4'){
+    if (state === 'page4') {
         page1El.style.display = 'none';
         page2El.style.display = 'none';
         page3El.style.display = 'none';
@@ -46,24 +45,30 @@ function displayPages() {
 
 function getSongs() {
     fetch('https://pokeapi.co/api/v2/pokemon/')
-    .then(function(response){
-        return response.json();
-    })
-    .then(function (data) {
-        var name = data.results[0].name;
-        callGif(name);
-    })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            callGif(name);
+            for (var i = 0; i < 3; i++) {
+                var name1 = data.results[i].name;
+                console.log(name1);
+
+            }
+        })
 }
 
 function callGif(name) {
-    fetch('https://api.giphy.com/v1/gifs/search?api_key=ZCIh2UkoAMZsDdlMKYVbI8ksUZ3kYD1z&q='+ name + '&limit=25&offset=0&rating=g&lang=en')
-    .then(function(response){
-        return response.json();
-    })
-    .then(function (data) {  
-        console.log(data.data)
-    })
+    fetch('https://api.giphy.com/v1/gifs/search?api_key=ZCIh2UkoAMZsDdlMKYVbI8ksUZ3kYD1z&q=' + name + '&limit=25&offset=0&rating=g&lang=en')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data)
+        })
 }
+
+
 
 
 submit.addEventListener("click", function () {
