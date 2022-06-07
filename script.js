@@ -14,6 +14,11 @@ var submit = document.querySelector('#submit');
 var next1 = document.querySelector('#next1');
 var next2 = document.querySelector('#next2');
 var restart = document.querySelector('#restart');
+var usa = document.querySelector('#usa');
+var italy = document.querySelector('#italy');
+var uk = document.querySelector('#uk');
+var germany = document.querySelector('#germany');
+var france = document.querySelector('#france')
 
 function displayPages() {
     if (state === 'page1'){
@@ -48,6 +53,7 @@ function displayPages() {
 submit.addEventListener("click", function () {
     state = 'page2';
     displayPages();
+
 });
 
 next1.addEventListener("click", function () {
@@ -67,9 +73,6 @@ restart.addEventListener("click", function () {
 
 function init() {
     displayPages();
-};
-
-
-
+}
 
 init();
