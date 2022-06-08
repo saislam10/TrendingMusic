@@ -107,8 +107,29 @@ function callGif(nameEl) {
             gif1.style.padding = "10px";
             gif2.style.padding = "10px";
             gif3.style.padding = "10px";
+            
         })
 }
+
+function getAlbum() {
+    fetch('https://theaudiodb.com/api/v1/json/523532/trending.php?country=us&type=itunes&format=albums')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data.trending[3].strArtist) 
+            console.log(data.trending[3].strAlbum)
+            console.log(data.trending[4].strArtist) 
+            console.log(data.trending[4].strAlbum)
+            console.log(data.trending[5].strArtist) 
+            console.log(data.trending[5].strAlbum)
+
+            
+            
+            
+
+        });
+    }
 
 submit.addEventListener("click", function () {
     state = 'page2';
@@ -136,6 +157,7 @@ function init() {
     dateEl.append("Today's Date: " + today);
     dateEl.style.fontSize = "18px";
     displayPages();
+    getAlbum();
 }
 
 
