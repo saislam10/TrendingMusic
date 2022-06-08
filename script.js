@@ -87,7 +87,6 @@ function getAlbum() {
             var artist1 = data.trending[5].strArtist
             var album1 = data.trending[5].strAlbum
 
-
             artistName1El.append(artist3);
             artistName2El.append(artist2);
             artistName3El.append(artist1);
@@ -95,8 +94,6 @@ function getAlbum() {
             album1El.append(album3);
             album2El.append(album2);
             album3El.append(album1);   
-
-
 
             var img3 = document.createElement("img");
             img3.setAttribute("src", cover3);
@@ -129,7 +126,7 @@ function getAlbum() {
         });
 }
 
-function callGif(nameEl,pageNumber) {
+function callGif(nameEl, pageNumber) {
     fetch('https://api.giphy.com/v1/gifs/search?api_key=ZCIh2UkoAMZsDdlMKYVbI8ksUZ3kYD1z&q=' + nameEl + '&limit=25&offset=0&rating=g&lang=en')
         .then(function (response) {
             return response.json();
