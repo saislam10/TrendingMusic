@@ -7,15 +7,18 @@ var submit = document.querySelector('#submit');
 var next1 = document.querySelector('#next1');
 var next2 = document.querySelector('#next2');
 var restart = document.querySelector('#restart');
-var usa = document.querySelector('#usa');
-var italy = document.querySelector('#italy');
-var uk = document.querySelector('#uk');
-var germany = document.querySelector('#germany');
-var france = document.querySelector('#france');
-var inpuEl = document.querySelector('#inputEl');
 var dateEl = document.querySelector('#date');
 var nameEl = document.querySelector('#input');
 var today = moment().format("dddd, MMMM Do, YYYY");
+var artistNameEl = document.querySelector("#artistName");
+var artistStartEl = document.querySelector("#artistStart");
+var artistGenreEl = document.querySelector("#artistGenre");
+var artistBioEl = document.querySelector("#bio");
+var artistName2El = document.querySelector("#artistName2");
+var gif1El = document.querySelector("#gif1");
+var gif2El = document.querySelector("#gif2");
+var gif3El = document.querySelector("#gif3");
+
 
 function displayPages() {
     if (state === 'page1') {
@@ -47,6 +50,7 @@ function displayPages() {
     }
 }
 
+
 function getSongs(nameEl) {
     fetch('https://theaudiodb.com/api/v1/json/2/search.php?s=' + nameEl.value)
         .then(function (response) {
@@ -54,25 +58,31 @@ function getSongs(nameEl) {
         })
         .then(function (data) {
             console.log(data);
-            var one = document.createElement('p');
-            var two = document.createElement('p');
-            var three = document.createElement('p');
-            var four = document.createElement('p');
             var artistName = data.artists[0].strArtist;
             var artistBio = data.artists[0].strBiographyEN;
             var artistStart = data.artists[0].intFormedYear;
             var artistGenre = data.artists[0].strGenre;
 
-            one.append(artistName);
-            two.append(artistStart);
-            three.append(artistGenre);
-            four.append(artistBio)
-            page2El.append(one);
-            page3El.append(nameEl.value.charAt(0).toUpperCase() + nameEl.value.slice(1), three, two);
-            page4El.append(four);
-            
+            artistNameEl.append("Artist: " + artistName);
+            artistName2El.append(artistName);
+            artistStartEl.append("Started in:  " + artistStart);
+            artistGenreEl.append("Genre:  " + artistGenre);
+            artistBioEl.append(artistBio);
+
+            artistNameEl.style.fontSize = "40px";
+            artistNameEl.style.fontWeight = "bolder";
+            artistNameEl.style.padding = "10px";
+            artistName2El.style.fontSize = "40px";
+            artistName2El.style.fontWeight = "bolder";
+            artistName2El.style.padding = "10px";
+            artistStartEl.style.padding = "10px";
+            artistGenreEl.style.padding = "10px";
+            artistStartEl.style.fontSize = "18px";
+            artistGenreEl.style.fontSize = "18px";
+            artistBioEl.style.padding = "10px";
         })
 }
+
 
 function callGif(nameEl) {
     fetch('https://api.giphy.com/v1/gifs/search?api_key=ZCIh2UkoAMZsDdlMKYVbI8ksUZ3kYD1z&q=' + nameEl.value + '&limit=25&offset=0&rating=g&lang=en')
@@ -85,15 +95,18 @@ function callGif(nameEl) {
             var embedId1 = data.data[1].id
             var embedId2 = data.data[2].id
             var gif1 = document.createElement('iframe');
-            var gif2  = document.createElement('iframe');
+            var gif2 = document.createElement('iframe');
             var gif3 = document.createElement('iframe');
             gif1.setAttribute("src", "https://giphy.com/embed/" + embedId)
             gif2.setAttribute("src", "https://giphy.com/embed/" + embedId1)
             gif3.setAttribute("src", "https://giphy.com/embed/" + embedId2)
-            page2El.append(gif1);
-            page3El.append(gif2);
-            page4El.append(gif3); 
+            gif1El.append(gif1);
+            gif2El.append(gif2);
+            gif3El.append(gif3);
 
+            gif1.style.padding = "10px";
+            gif2.style.padding = "10px";
+            gif3.style.padding = "10px";
         })
 }
 
@@ -120,8 +133,10 @@ restart.addEventListener("click", function () {
 });
 
 function init() {
-    dateEl.append("Today's Date: " + today)    
-    displayPages(); 
+    dateEl.append("Today's Date: " + today);
+    dateEl.style.fontSize = "18px";
+    displayPages();
 }
+
 
 init();
