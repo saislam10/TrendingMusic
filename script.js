@@ -10,11 +10,21 @@ var restart = document.querySelector('#restart');
 var dateEl = document.querySelector('#date');
 var nameEl = document.querySelector('#input');
 var today = moment().format("dddd, MMMM Do, YYYY");
-var artistNameEl = document.querySelector("#artistName");
-var artistStartEl = document.querySelector("#artistStart");
-var artistGenreEl = document.querySelector("#artistGenre");
-var artistBioEl = document.querySelector("#bio");
+var artistName1El = document.querySelector("#artistName1");
+var album1El = document.querySelector('#album1');
+var artistStart1El = document.querySelector("#artistStart1");
+var artistGenre1El = document.querySelector("#artistGenre1");
+var artistBio1El = document.querySelector("#bio1");
 var artistName2El = document.querySelector("#artistName2");
+var album2El = document.querySelector('#album2');
+var artistStart2El = document.querySelector("#artistStart2");
+var artistGenre2El = document.querySelector("#artistGenre2");
+var artistBio2El = document.querySelector("#bio2");
+var artistName3El = document.querySelector("#artistName3");
+var album3El = document.querySelector('#album3');
+var artistStart3El = document.querySelector("#artistStart3");
+var artistGenre3El = document.querySelector("#artistGenre3");
+var artistBio3El = document.querySelector("#bio3");
 var gif1El = document.querySelector("#gif1");
 var gif2El = document.querySelector("#gif2");
 var gif3El = document.querySelector("#gif3");
@@ -49,9 +59,29 @@ function displayPages() {
         page4El.style.display = 'block';
     }
 }
+function getAlbum() {
+    fetch('https://theaudiodb.com/api/v1/json/523532/trending.php?country=us&type=itunes&format=albums')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            var artist3 = data.trending[3].strArtist 
+            var album3 = data.trending[3].strAlbum 
+            var artist2 = data.trending[4].strArtist 
+            var album2 = data.trending[4].strAlbum 
+            var artist1 = data.trending[5].strArtist 
+            var album1 = data.trending[5].strAlbum 
+            artistName1El.append(artist3); 
+            artistName2El.append(artist2); 
+            artistName3El.append(artist1); 
+            album1El.append(album3)
+            album2El.append(album2)
+            album3El.append(album1)
+        
+        });
+    }
 
-
-function getSongs(nameEl) {
+function getArtist(nameEl) {
     fetch('https://theaudiodb.com/api/v1/json/2/search.php?s=' + nameEl.value)
         .then(function (response) {
             return response.json();
@@ -111,30 +141,12 @@ function callGif(nameEl) {
         })
 }
 
-function getAlbum() {
-    fetch('https://theaudiodb.com/api/v1/json/523532/trending.php?country=us&type=itunes&format=albums')
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data.trending[3].strArtist) 
-            console.log(data.trending[3].strAlbum)
-            console.log(data.trending[4].strArtist) 
-            console.log(data.trending[4].strAlbum)
-            console.log(data.trending[5].strArtist) 
-            console.log(data.trending[5].strAlbum)
 
-            
-            
-            
-
-        });
-    }
 
 submit.addEventListener("click", function () {
     state = 'page2';
     displayPages();
-    getSongs(nameEl);
+    getArtist(nameEl);
     callGif(nameEl);
 });
 
