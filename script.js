@@ -102,10 +102,9 @@ function getAlbum() {
             artistName1El.append(artist3);
             artistName2El.append(artist2);
             artistName3El.append(artist1);
-
             album1El.append("Album:  " + album3);
             album2El.append("Album:  " + album2);
-            album3El.append("Album:  " + album1);
+            album3El.append("Album:  " + album1);   
 
             var img3 = document.createElement("img");
             img3.setAttribute("src", cover3);
@@ -128,13 +127,10 @@ function getAlbum() {
             cover2El.append(img2);
             cover3El.append(img3);
 
-            callGif(artist3, 2)
-            callGif(artist2, 3)
-            callGif(artist1, 4)
 
-            getArtist(artist3, 2);
-            getArtist(artist2, 3);
-            getArtist(artist1, 4);
+            getArtist(artist3,2);
+            getArtist(artist2,3);
+            getArtist(artist1,4);  
         });
 }
 

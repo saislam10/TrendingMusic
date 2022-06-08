@@ -45,6 +45,7 @@ body{
 
 .bio {
     padding: 10px;
+
 }
 
 #date {
@@ -65,6 +66,7 @@ body{
     background-color: rgb(201, 201, 248);
 }
 
+
 .home {
     font-family:Optima;
     border-radius: 90px;
@@ -75,9 +77,5 @@ body{
     background-color: rgb(241, 192, 192);
     font-weight: bold;
 }
-.rank{
-    border: solid;
-    border-radius: 100px;
-    width: 50%;
-    align-content: center;
-}
+
+
