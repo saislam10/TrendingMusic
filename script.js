@@ -54,6 +54,7 @@ function getSongs(nameEl) {
             return response.json();
         })
         .then(function (data) {
+            console.log(data);
             document.innerHTML = null;
             var one = document.createElement('p');
             var two = document.createElement('p');
@@ -61,41 +62,34 @@ function getSongs(nameEl) {
             var four = document.createElement('p');
             var artistName = data.artists[0].strArtist;
             var artistBio = data.artists[0].strBiographyEN;
-            var artistBday = data.artists[0].intBornYear;
+            var artistStart = data.artists[0].intFormedYear;
             var artistGenre = data.artists[0].strGenre;
 
             one.append(artistName);
-            two.append(artistBday);
+            two.append(artistStart);
             three.append(artistGenre);
             four.append(artistBio)
-            page2El.append(one, two, three, four);
+            page2El.append(one);
+            page3El.append(nameEl.value.charAt(0).toUpperCase() + nameEl.value.slice(1), three, two);
+            page4El.append(four);
+            
             
         })
 }
 
-// function callGif(nameEl) {
-//     fetch('https://api.giphy.com/v1/gifs/search?api_key=ZCIh2UkoAMZsDdlMKYVbI8ksUZ3kYD1z&q=' + nameEl + '&limit=25&offset=0&rating=g&lang=en')
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//             console.log(data)
-//             var embedId = data.data[0].id
-//             var embedId1 = data.data[1].id
-//             var embedId2 = data.data[2].id
-//             var gif1 = document.createElement('iframe');
-//             var gif2  = document.createElement('iframe');
-//             var gif3 = document.createElement('iframe');
-//             gif1.setAttribute("src", "https://giphy.com/embed/" + embedId)
-//             gif2.setAttribute("src", "https://giphy.com/embed/" + embedId1)
-//             gif3.setAttribute("src", "https://giphy.com/embed/" + embedId2)
-//             page2El.append(gif1);
-//             page3El.append(gif2);
-//             page4El.append(gif3);
-//         })
-// }
-
-
+function callGif(nameEl) {
+    fetch('https://api.giphy.com/v1/gifs/search?api_key=ZCIh2UkoAMZsDdlMKYVbI8ksUZ3kYD1z&q=' + nameEl.value + '&limit=25&offset=0&rating=g&lang=en')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            
+            // page2El.append(gif1);
+            // page3El.append(gif2);
+            // page4El.append(gif3);
+        })
+}
 
 
 submit.addEventListener("click", function () {
@@ -103,6 +97,7 @@ submit.addEventListener("click", function () {
     displayPages();
     getSongs(nameEl);
     document.innerHTML = null;
+    callGif(nameEl);
 });
 
 next1.addEventListener("click", function () {
@@ -122,9 +117,7 @@ restart.addEventListener("click", function () {
 
 function init() {
     dateEl.append("Today's Date: " + today)    
-    displayPages();
-    // callGif('bulbasaur');
-
+    displayPages(); 
 }
 
 init();
