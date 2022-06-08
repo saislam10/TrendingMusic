@@ -123,9 +123,7 @@ function getAlbum() {
 
             getArtist(artist3,2);
             getArtist(artist2,3);
-            getArtist(artist1,4);
-
-            
+            getArtist(artist1,4);  
         });
 }
 
@@ -172,35 +170,24 @@ function getArtist(nameEl,pageNumber) {
 
             switch(pageNumber){
                 case 2:
-                    artistStart1El.append(artistStart);
-                    artistGenre1El.append(artistGenre);
+                    artistStart1El.append("Started in:  " + artistStart);
+                    artistGenre1El.append("Genre:  " + artistGenre);
                     artistBio1El.append(artistBio);
                     break;
                 case 3:
-                    artistStart2El.append(artistStart);
-                    artistGenre2El.append(artistGenre);
+                    artistStart2El.append("Started in:  " + artistStart);
+                    artistGenre2El.append("Genre:  " + artistGenre);
                     artistBio2El.append(artistBio);
                     break;
                 case 4:
-                    artistStart3El.append(artistStart);
-                    artistGenre3El.append(artistGenre);
+                    artistStart3El.append("Started in:  " + artistStart);
+                    artistGenre3El.append("Genre:  " + artistGenre);
                     artistBio3El.append(artistBio);
                     break;
                 default:
                 
             }
 
-            // artistNameEl.style.fontSize = "40px";
-            // artistNameEl.style.fontWeight = "bolder";
-            // artistNameEl.style.padding = "10px";
-            // artistName2El.style.fontSize = "40px";
-            // artistName2El.style.fontWeight = "bolder";
-            // artistName2El.style.padding = "10px";
-            // artistStartEl.style.padding = "10px";
-            // artistGenreEl.style.padding = "10px";
-            // artistStartEl.style.fontSize = "18px";
-            // artistGenreEl.style.fontSize = "18px";
-            // artistBioEl.style.padding = "10px";
         })
 }
 
