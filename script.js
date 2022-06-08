@@ -40,12 +40,12 @@ var cover1El = document.querySelector('#cover1');
 
 
 
-var song3to2 = document.querySelector ('#threeToTwo');
-var song3to1 = document.querySelector ('#threeToOne');
-var song2to1 = document.querySelector ('#twoToOne');
-var song2to3 = document.querySelector ('#twoToThree');
-var song1to2 = document.querySelector ('#oneToTwo');
-var song1to3 = document.querySelector ('#oneToThree');
+var song3to2 = document.querySelector('#threeToTwo');
+var song3to1 = document.querySelector('#threeToOne');
+var song2to1 = document.querySelector('#twoToOne');
+var song2to3 = document.querySelector('#twoToThree');
+var song1to2 = document.querySelector('#oneToTwo');
+var song1to3 = document.querySelector('#oneToThree');
 
 
 
@@ -124,7 +124,6 @@ function getAlbum() {
             img1.style.height = "300px"
             img1.style.width = "300px"
             img1.style.borderStyle = "solid";
-
             cover1El.append(img1);
             cover2El.append(img2);
             cover3El.append(img3);
@@ -243,32 +242,32 @@ button1.addEventListener("click", function () {
 song1to2.addEventListener("click", function () {
     state = 'page3';
     displayPages();
-}); 
+});
 
 song1to3.addEventListener("click", function () {
     state = 'page2';
     displayPages();
-}); 
+});
 
 song2to1.addEventListener("click", function () {
     state = 'page4';
     displayPages();
-}); 
+});
 
 song2to3.addEventListener("click", function () {
     state = 'page2';
     displayPages();
-}); 
+});
 
 song3to1.addEventListener("click", function () {
     state = 'page4';
     displayPages();
-}); 
+});
 
 song3to2.addEventListener("click", function () {
     state = 'page3';
     displayPages();
-}); 
+});
 
 
 
