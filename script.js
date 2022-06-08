@@ -38,6 +38,18 @@ var cover2El = document.querySelector('#cover2');
 var cover1El = document.querySelector('#cover1');
 
 
+
+
+var song3to2 = document.querySelector('#threeToTwo');
+var song3to1 = document.querySelector('#threeToOne');
+var song2to1 = document.querySelector('#twoToOne');
+var song2to3 = document.querySelector('#twoToThree');
+var song1to2 = document.querySelector('#oneToTwo');
+var song1to3 = document.querySelector('#oneToThree');
+
+
+
+
 function displayPages() {
     if (state === 'page1') {
         page1El.style.display = 'block';
@@ -51,7 +63,7 @@ function displayPages() {
         page2El.style.display = 'block';
         page3El.style.display = 'none';
         page4El.style.display = 'none';
-    
+
     }
 
     if (state === 'page3') {
@@ -59,7 +71,7 @@ function displayPages() {
         page2El.style.display = 'none';
         page3El.style.display = 'block';
         page4El.style.display = 'none';
-       
+
     }
 
     if (state === 'page4') {
@@ -67,7 +79,7 @@ function displayPages() {
         page2El.style.display = 'none';
         page3El.style.display = 'none';
         page4El.style.display = 'block';
-    
+
     }
 }
 
@@ -87,11 +99,9 @@ function getAlbum() {
             var artist1 = data.trending[5].strArtist
             var album1 = data.trending[5].strAlbum
 
-
             artistName1El.append(artist3);
             artistName2El.append(artist2);
             artistName3El.append(artist1);
-            
             album1El.append("Album:  " + album3);
             album2El.append("Album:  " + album2);
             album3El.append("Album:  " + album1);   
@@ -113,14 +123,10 @@ function getAlbum() {
             img1.style.height = "300px"
             img1.style.width = "300px"
             img1.style.borderStyle = "solid";
-            
             cover1El.append(img1);
             cover2El.append(img2);
             cover3El.append(img3);
-            
-            callGif(artist3,2)
-            callGif(artist2,3)
-            callGif(artist1,4)
+
 
             getArtist(artist3,2);
             getArtist(artist2,3);
@@ -128,7 +134,7 @@ function getAlbum() {
         });
 }
 
-function callGif(nameEl,pageNumber) {
+function callGif(nameEl, pageNumber) {
     fetch('https://api.giphy.com/v1/gifs/search?api_key=ZCIh2UkoAMZsDdlMKYVbI8ksUZ3kYD1z&q=' + nameEl + '&limit=25&offset=0&rating=g&lang=en')
         .then(function (response) {
             return response.json();
@@ -139,7 +145,7 @@ function callGif(nameEl,pageNumber) {
             var gif = document.createElement('iframe');
             gif.setAttribute("src", "https://giphy.com/embed/" + embedId);
 
-            switch(pageNumber){
+            switch (pageNumber) {
                 case 2:
                     gif1El.append(gif);
                     break;
@@ -150,7 +156,7 @@ function callGif(nameEl,pageNumber) {
                     gif3El.append(gif);
                     break;
                 default:
-                
+
             }
 
             gif.style.padding = "10px";
@@ -159,7 +165,7 @@ function callGif(nameEl,pageNumber) {
         })
 }
 
-function getArtist(nameEl,pageNumber) {
+function getArtist(nameEl, pageNumber) {
     fetch('https://theaudiodb.com/api/v1/json/2/search.php?s=' + nameEl)
         .then(function (response) {
             return response.json();
@@ -170,7 +176,7 @@ function getArtist(nameEl,pageNumber) {
             var artistStart = data.artists[0].intFormedYear;
             var artistGenre = data.artists[0].strGenre;
 
-            switch(pageNumber){
+            switch (pageNumber) {
                 case 2:
                     artistStart1El.append("Started in:  " + artistStart);
                     artistGenre1El.append("Genre:  " + artistGenre);
@@ -187,7 +193,7 @@ function getArtist(nameEl,pageNumber) {
                     artistBio3El.append(artistBio);
                     break;
                 default:
-                
+
             }
 
         })
@@ -228,6 +234,37 @@ button1.addEventListener("click", function () {
     state = 'page4';
     displayPages();
 });
+
+song1to2.addEventListener("click", function () {
+    state = 'page3';
+    displayPages();
+});
+
+song1to3.addEventListener("click", function () {
+    state = 'page2';
+    displayPages();
+});
+
+song2to1.addEventListener("click", function () {
+    state = 'page4';
+    displayPages();
+});
+
+song2to3.addEventListener("click", function () {
+    state = 'page2';
+    displayPages();
+});
+
+song3to1.addEventListener("click", function () {
+    state = 'page4';
+    displayPages();
+});
+
+song3to2.addEventListener("click", function () {
+    state = 'page3';
+    displayPages();
+});
+
 
 
 function init() {
