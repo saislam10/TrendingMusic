@@ -4,3 +4,15 @@ body{
 #format{
     width: auto;
 }
+
+#question {
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 4px;
+}
+
+#bioTitle{
+    font-size: 30px;
+    padding: 10px;
+}
