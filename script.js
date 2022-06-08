@@ -2,8 +2,13 @@ var state = 'page1';
 var page1El = document.querySelector('#page1');
 var page2El = document.querySelector('#page2');
 var page3El = document.querySelector('#page3');
+var homeBtn1 = document.querySelector('#home1');
+var homeBtn2 = document.querySelector('#home2');
+var homeBtn3 = document.querySelector('#home3');
 var page4El = document.querySelector('#page4');
-var submit = document.querySelector('#submit');
+var button3 = document.querySelector('#btn3');
+var button2 = document.querySelector('#btn2');
+var button1 = document.querySelector('#btn1');
 var next1 = document.querySelector('#next1');
 var next2 = document.querySelector('#next2');
 var restart = document.querySelector('#restart');
@@ -28,6 +33,9 @@ var artistBio3El = document.querySelector("#bio3");
 var gif1El = document.querySelector("#gif1");
 var gif2El = document.querySelector("#gif2");
 var gif3El = document.querySelector("#gif3");
+var cover3El = document.querySelector('#cover3');
+var cover2El = document.querySelector('#cover2');
+var cover1El = document.querySelector('#cover1');
 
 
 function displayPages() {
@@ -69,20 +77,45 @@ function getAlbum() {
             return response.json();
         })
         .then(function (data) {
+            var cover3 = data.trending[3].strAlbumThumb;
             var artist3 = data.trending[3].strArtist
             var album3 = data.trending[3].strAlbum
+            var cover2 = data.trending[4].strAlbumThumb;
             var artist2 = data.trending[4].strArtist
             var album2 = data.trending[4].strAlbum
+            var cover1 = data.trending[5].strAlbumThumb;
             var artist1 = data.trending[5].strArtist
             var album1 = data.trending[5].strAlbum
+
 
             artistName1El.append(artist3);
             artistName2El.append(artist2);
             artistName3El.append(artist1);
             
-            album1El.append(album3)
-            album2El.append(album2)
-            album3El.append(album1)              
+            album1El.append(album3);
+            album2El.append(album2);
+            album3El.append(album1);   
+
+
+
+            var img3 = document.createElement("img");
+            img3.setAttribute("src", cover3);
+            img3.style.height = "300px"
+            img3.style.width = "300px"
+
+            var img2 = document.createElement("img");
+            img2.setAttribute("src", cover2);
+            img2.style.height = "300px"
+            img2.style.width = "300px"
+
+            var img1 = document.createElement("img");
+            img1.setAttribute("src", cover1);
+            img1.style.height = "300px"
+            img1.style.width = "300px"
+            
+            cover1El.append(img1);
+            cover2El.append(img2);
+            cover3El.append(img3);
             
             callGif(artist3,2)
             callGif(artist2,3)
@@ -171,27 +204,42 @@ function getArtist(nameEl,pageNumber) {
         })
 }
 
-submit.addEventListener("click", function () {
-    state = 'page2';
+homeBtn1.addEventListener("click", function () {
+    state = 'page1';
     displayPages();
     getArtist(nameEl);
     callGif(nameEl);
 });
 
-next1.addEventListener("click", function () {
+homeBtn2.addEventListener("click", function () {
+    state = 'page1';
+    displayPages();
+    getArtist(nameEl);
+    callGif(nameEl);
+});
+
+homeBtn3.addEventListener("click", function () {
+    state = 'page1';
+    displayPages();
+    getArtist(nameEl);
+    callGif(nameEl);
+});
+
+button3.addEventListener("click", function () {
+    state = 'page2';
+    displayPages();
+});
+
+button2.addEventListener("click", function () {
     state = 'page3';
     displayPages();
 });
 
-next2.addEventListener("click", function () {
+button1.addEventListener("click", function () {
     state = 'page4';
     displayPages();
 });
 
-restart.addEventListener("click", function () {
-    state = 'page1';
-    displayPages();
-});
 
 function init() {
     dateEl.append("Today's Date: " + today);
