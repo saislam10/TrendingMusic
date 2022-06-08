@@ -75,9 +75,11 @@ function getAlbum() {
             var album2 = data.trending[4].strAlbum
             var artist1 = data.trending[5].strArtist
             var album1 = data.trending[5].strAlbum
+
             artistName1El.append(artist3);
             artistName2El.append(artist2);
             artistName3El.append(artist1);
+            
             album1El.append(album3)
             album2El.append(album2)
             album3El.append(album1)              
@@ -85,8 +87,12 @@ function getAlbum() {
             callGif(artist3,2)
             callGif(artist2,3)
             callGif(artist1,4)
-            
 
+            getArtist(artist3,2);
+            getArtist(artist2,3);
+            getArtist(artist1,4);
+
+            
         });
 }
 
@@ -98,21 +104,12 @@ function callGif(nameEl,pageNumber) {
         .then(function (data) {
             console.log(data)
             var embedId = data.data[0].id
-           // var embedId1 = data.data[1].id
-           // var embedId2 = data.data[2].id
             var gif = document.createElement('iframe');
-            //var gif2 = document.createElement('iframe');
-            //var gif3 = document.createElement('iframe');
-            gif.setAttribute("src", "https://giphy.com/embed/" + embedId)
-           // gif2.setAttribute("src", "https://giphy.com/embed/" + embedId1)
-           // gif3.setAttribute("src", "https://giphy.com/embed/" + embedId2)
-           // gif1El.append(gif1);
-            //gif2El.append(gif2);
-            //.append(gif3);
+            gif.setAttribute("src", "https://giphy.com/embed/" + embedId);
 
             switch(pageNumber){
                 case 2:
-                    gif1El.append(gif); //gif here
+                    gif1El.append(gif);
                     break;
                 case 3:
                     gif2El.append(gif);
@@ -129,47 +126,55 @@ function callGif(nameEl,pageNumber) {
         })
 }
 
-// function getArtist(nameEl) {
-//     fetch('https://theaudiodb.com/api/v1/json/2/search.php?s=' + nameEl)
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//             console.log(data);
-//             var artistName = data.artists[0].strArtist;
-//             var artistBio = data.artists[0].strBiographyEN;
-//             var artistStart = data.artists[0].intFormedYear;
-//             var artistGenre = data.artists[0].strGenre;
+function getArtist(nameEl,pageNumber) {
+    fetch('https://theaudiodb.com/api/v1/json/2/search.php?s=' + nameEl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            var artistBio = data.artists[0].strBiographyEN;
+            var artistStart = data.artists[0].intFormedYear;
+            var artistGenre = data.artists[0].strGenre;
 
-//             artistNameEl.append("Artist: " + artistName);
-//             artistName2El.append(artistName);
-//             artistStartEl.append("Started in:  " + artistStart);
-//             artistGenreEl.append("Genre:  " + artistGenre);
-//             artistBioEl.append(artistBio);
+            switch(pageNumber){
+                case 2:
+                    artistStart1El.append(artistStart);
+                    artistGenre1El.append(artistGenre);
+                    artistBio1El.append(artistBio);
+                    break;
+                case 3:
+                    artistStart2El.append(artistStart);
+                    artistGenre2El.append(artistGenre);
+                    artistBio2El.append(artistBio);
+                    break;
+                case 4:
+                    artistStart3El.append(artistStart);
+                    artistGenre3El.append(artistGenre);
+                    artistBio3El.append(artistBio);
+                    break;
+                default:
+                
+            }
 
-//             artistNameEl.style.fontSize = "40px";
-//             artistNameEl.style.fontWeight = "bolder";
-//             artistNameEl.style.padding = "10px";
-//             artistName2El.style.fontSize = "40px";
-//             artistName2El.style.fontWeight = "bolder";
-//             artistName2El.style.padding = "10px";
-//             artistStartEl.style.padding = "10px";
-//             artistGenreEl.style.padding = "10px";
-//             artistStartEl.style.fontSize = "18px";
-//             artistGenreEl.style.fontSize = "18px";
-//             artistBioEl.style.padding = "10px";
-//         })
-// }
-
-
-
-
-
+            // artistNameEl.style.fontSize = "40px";
+            // artistNameEl.style.fontWeight = "bolder";
+            // artistNameEl.style.padding = "10px";
+            // artistName2El.style.fontSize = "40px";
+            // artistName2El.style.fontWeight = "bolder";
+            // artistName2El.style.padding = "10px";
+            // artistStartEl.style.padding = "10px";
+            // artistGenreEl.style.padding = "10px";
+            // artistStartEl.style.fontSize = "18px";
+            // artistGenreEl.style.fontSize = "18px";
+            // artistBioEl.style.padding = "10px";
+        })
+}
 
 submit.addEventListener("click", function () {
     state = 'page2';
     displayPages();
-    // getArtist(nameEl);
+    getArtist(nameEl);
     callGif(nameEl);
 });
 
@@ -194,6 +199,5 @@ function init() {
     displayPages();
     getAlbum();
 }
-
 
 init();
