@@ -16,3 +16,13 @@ body{
     font-size: 30px;
     padding: 10px;
 }
+
+.start{
+    display: flex;
+    flex-direction: row;
+}
+
+#btn3 {
+    margin-left: 50px;
+
+}
