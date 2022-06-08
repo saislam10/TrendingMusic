@@ -92,26 +92,27 @@ function getAlbum() {
             artistName2El.append(artist2);
             artistName3El.append(artist1);
             
-            album1El.append(album3);
-            album2El.append(album2);
-            album3El.append(album1);   
-
-
+            album1El.append("Album:  " + album3);
+            album2El.append("Album:  " + album2);
+            album3El.append("Album:  " + album1);   
 
             var img3 = document.createElement("img");
             img3.setAttribute("src", cover3);
             img3.style.height = "300px"
             img3.style.width = "300px"
+            img3.style.borderStyle = "solid";
 
             var img2 = document.createElement("img");
             img2.setAttribute("src", cover2);
             img2.style.height = "300px"
             img2.style.width = "300px"
+            img2.style.borderStyle = "solid";
 
             var img1 = document.createElement("img");
             img1.setAttribute("src", cover1);
             img1.style.height = "300px"
             img1.style.width = "300px"
+            img1.style.borderStyle = "solid";
             
             cover1El.append(img1);
             cover2El.append(img2);
@@ -153,6 +154,7 @@ function callGif(nameEl,pageNumber) {
             }
 
             gif.style.padding = "10px";
+            gif.style.borderStyle = "solid";
 
         })
 }
@@ -230,7 +232,6 @@ button1.addEventListener("click", function () {
 
 function init() {
     dateEl.append("Today's Date: " + today);
-    dateEl.style.fontSize = "18px";
     displayPages();
     getAlbum();
 }
