@@ -8,12 +8,12 @@ body{
 #question {
     font-size: 40px;
     padding: 4px;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 .artistName {
     font-size: 40px;
     font-weight: bolder;
-    padding-left: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .album {
@@ -22,10 +22,21 @@ body{
     padding: 30px;
 }
 
+.button {
+    font-family:Optima;
+    border-radius: 90px;
+    font-size: 20px;
+    padding: 6px;
+}
+.button:hover{
+    background-color: rgb(241, 192, 192);
+    font-weight: bold;
+}
+
 .bioTitle{
     font-size: 30px;
     padding: 20px;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .genre {
@@ -36,6 +47,31 @@ body{
     padding: 10px;
 }
 
+#date {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 25px;
+}
+
+#page1 {
+    background-color: rgb(201, 201, 248);
+}
+#page2 {
+    background-color: rgb(201, 201, 248);
+}
+#page3 {
+    background-color: rgb(201, 201, 248);
+}
+#page4 {
+    background-color: rgb(201, 201, 248);
+}
+
 .home {
-    margin: 10px;
+    font-family:Optima;
+    border-radius: 90px;
+    font-size: 20px;
+    padding: 6px;
+}
+.home:hover{
+    background-color: rgb(241, 192, 192);
+    font-weight: bold;
 }
