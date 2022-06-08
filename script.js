@@ -17,7 +17,6 @@ var dateEl = document.querySelector('#date');
 var nameEl = document.querySelector('#input');
 var today = moment().format("dddd, MMMM Do, YYYY");
 
-
 function displayPages() {
     if (state === 'page1') {
         page1El.style.display = 'block';
@@ -55,7 +54,6 @@ function getSongs(nameEl) {
         })
         .then(function (data) {
             console.log(data);
-            document.innerHTML = null;
             var one = document.createElement('p');
             var two = document.createElement('p');
             var three = document.createElement('p');
@@ -73,7 +71,6 @@ function getSongs(nameEl) {
             page3El.append(nameEl.value.charAt(0).toUpperCase() + nameEl.value.slice(1), three, two);
             page4El.append(four);
             
-            
         })
 }
 
@@ -83,20 +80,27 @@ function callGif(nameEl) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
-            
-            // page2El.append(gif1);
-            // page3El.append(gif2);
-            // page4El.append(gif3);
+            console.log(data)
+            var embedId = data.data[0].id
+            var embedId1 = data.data[1].id
+            var embedId2 = data.data[2].id
+            var gif1 = document.createElement('iframe');
+            var gif2  = document.createElement('iframe');
+            var gif3 = document.createElement('iframe');
+            gif1.setAttribute("src", "https://giphy.com/embed/" + embedId)
+            gif2.setAttribute("src", "https://giphy.com/embed/" + embedId1)
+            gif3.setAttribute("src", "https://giphy.com/embed/" + embedId2)
+            page2El.append(gif1);
+            page3El.append(gif2);
+            page4El.append(gif3); 
+
         })
 }
-
 
 submit.addEventListener("click", function () {
     state = 'page2';
     displayPages();
     getSongs(nameEl);
-    document.innerHTML = null;
     callGif(nameEl);
 });
 
