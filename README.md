@@ -1,4 +1,4 @@
-# group-project
+# Trending Albums
 ## Table of Contents 
  1. [Authors](#authors)
  2. [User Story](#user-story)
