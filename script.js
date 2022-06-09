@@ -99,9 +99,9 @@ function getAlbum() {
             var artist1 = data.trending[5].strArtist
             var album1 = data.trending[5].strAlbum
 
-            artistName1El.append(artist3);
-            artistName2El.append(artist2);
-            artistName3El.append(artist1);
+            artistName1El.append("By:  " + artist3);
+            artistName2El.append("By:  " + artist2);
+            artistName3El.append("By:  " + artist1);
             album1El.append("Album:  " + album3);
             album2El.append("Album:  " + album2);
             album3El.append("Album:  " + album1);   
@@ -126,7 +126,6 @@ function getAlbum() {
             cover1El.append(img1);
             cover2El.append(img2);
             cover3El.append(img3);
-
 
             callGif (artist3, 2);
             callGif (artist2, 3);
@@ -160,12 +159,10 @@ function callGif(nameEl, pageNumber) {
                     gif3El.append(gif);
                     break;
                 default:
-
             }
-
-            gif.style.padding = "10px";
-            gif.style.borderStyle = "solid";
-
+            
+            gif.style.border = "5px solid black";
+            gif.style.border 
         })
 }
 
