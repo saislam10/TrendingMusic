@@ -79,3 +79,9 @@ body{
 }
 
 
+.rank {
+    font-family:Optima;
+    width: 180px;
+    border: solid;
+    border-radius: 40px;
+}

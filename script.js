@@ -128,6 +128,10 @@ function getAlbum() {
             cover3El.append(img3);
 
 
+            callGif (artist3, 2);
+            callGif (artist2, 3);
+            callGif (artist1, 4);
+
             getArtist(artist3,2);
             getArtist(artist2,3);
             getArtist(artist1,4);  
