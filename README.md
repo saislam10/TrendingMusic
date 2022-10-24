@@ -23,9 +23,9 @@ SO THAT I can have knowledge of the current music industry
 When the user arrives to the homesceen they see the album covers of the top three albums in the country for that week based on the Audio DB Trending Albums API. They also see the current date based on the Moment.JS application and the date that it was last updated on the API. They then have the option to select between the information for the albums. Once a button is selected the user is met with information such as the album name, artist name, and the year they began creating music. Those will be based on the Audio DB search API.  They will also be greeted with a gif based on that artist's name using the Giphy API. Within each of the pages the user has the option to toggle back to the home page or to the information about the other two albums. The code is set up to work within smaller screens such as phones and tablets. Overall, the user has access to the top music of that given week and information about the artist. The picture below is the homescreen of the website.
 
 ## Resources
-[LIVE SITE](https://saislam10.github.io/group-project/)
+[LIVE SITE](https://saislam10.github.io/TrendingMusic/)
 
-[Github Repo](https://github.com/saislam10/group-project)
+[Github Repo](https://github.com/saislam10/TrendingMusic)
 ## Visuals
 ![Trending Albums](cover_pic.png)
 
